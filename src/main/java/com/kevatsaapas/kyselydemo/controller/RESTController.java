@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -24,8 +25,8 @@ public class RESTController {
         return repository.findAll();
     }
 
-    /*@RequestMapping("/kysymykset/{id}")
-    public Kysymys getKysymys(@PathVariable("id") Long id){
-        return repository.findOne(id);
-    }*/
+    @RequestMapping("/kysymykset/{id}")
+    public Optional<Kysymys> getKysymys(@PathVariable("id") Long id){
+        return repository.findById(id);
+    }
 }
