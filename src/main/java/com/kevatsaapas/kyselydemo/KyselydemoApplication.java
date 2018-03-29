@@ -21,8 +21,9 @@ public class KyselydemoApplication {
 	@Bean
 	public CommandLineRunner demo(KysymysRepository repository) {
 		return args -> {
-			repository.save(new Kysymys("Onko kevätsaappaat hankittu?"));
-			repository.save(new Kysymys("Mikä on parasta keväässä?"));
+			repository.save(new Kysymys("Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?"));
+			repository.save(new Kysymys("Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?"));
+			repository.save(new Kysymys("Kuinka opiskelusi sujuu?"));
 		};
 	}
 }
