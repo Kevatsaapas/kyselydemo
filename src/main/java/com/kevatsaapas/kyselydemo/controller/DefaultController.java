@@ -8,6 +8,6 @@ public class DefaultController {
 
     @RequestMapping("/")
     public String index(){
-        return "redirect:/api/kysymykset";
+        return "index";
     }
 }
