@@ -21,9 +21,7 @@ public class RESTController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/kysymykset")
-    public Iterable<Kysymys> kysymykset(){
-        return repository.findAll();
-    }
+    public Iterable<Kysymys> kysymykset(){ return repository.findAll();}
 
     @RequestMapping("/kysymykset/{id}")
     public Optional<Kysymys> getKysymys(@PathVariable("id") Long id){

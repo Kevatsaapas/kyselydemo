@@ -1,15 +1,15 @@
 package com.kevatsaapas.kyselydemo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Kysymys {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+    private long kysymysid;
     private String kysymysTeksti;
 
     public Kysymys(String kysymysTeksti) {
@@ -22,12 +22,31 @@ public class Kysymys {
         this.kysymysTeksti = null;
     }
 
+    /**
+     * Yhdistetään kysymykset kyselyyn ja get-set
+     */
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "kyselyid")
+    private Kysely kysely;
+
+    @OneToMany
+    private List<Kysymysvastaus> kysymysvastaus;
+
+    public void getKysely(Kysely kysely){
+        this.kysely = kysely;
+    }
+
+    public void setKysely(Kysely kysely){
+        this.kysely = kysely;
+    }
+
     public long getId() {
-        return id;
+        return kysymysid;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.kysymysid = id;
     }
 
     public String getKysymysTeksti() {
@@ -40,7 +59,7 @@ public class Kysymys {
 
     @Override
     public String toString() {
-        return "Kysymys [id=" + id + ", kysymysTeksti=" + kysymysTeksti + "]";
+        return "Kysymys [id=" + kysymysid + ", kysymysTeksti=" + kysymysTeksti + "]";
     }
 
 
