@@ -31,7 +31,11 @@ public class Kysymys {
     private Kysely kysely;
 
     @OneToMany
-    private List<Kysymysvastaus> kysymysvastaus;
+    private List<Kysymysvastaus> kysymysvastaukset;
+
+    public List<Kysymysvastaus> getKysymysvastaukset() {
+        return kysymysvastaukset;
+    }
 
     public void getKysely(Kysely kysely){
         this.kysely = kysely;
