@@ -10,9 +10,9 @@ public class Kysely {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long kyselyId;
+    private long kysely_id;
 
-    private String kyselyNimi;
+    private String kyselyn_nimi;
 
     @OneToMany
     private List<Kysymys> kysymysList;
@@ -22,20 +22,24 @@ public class Kysely {
      */
     public Kysely() { }
 
-    public long getKyselyId() {
-        return kyselyId;
+    public Kysely(String kyselyn_nimi) {
+        this.kyselyn_nimi = kyselyn_nimi;
     }
 
-    public void setKyselyId(long kyselyId) {
-        this.kyselyId = kyselyId;
+    public long getKyselyId() {
+        return kysely_id;
+    }
+
+    public void setKyselyId(long kysely_id) {
+        this.kysely_id = kysely_id;
     }
 
     public String getkysely() {
-        return kyselyNimi;
+        return kyselyn_nimi;
     }
 
-    public void setkysely(String kyselyNimi) {
-        this.kyselyNimi = kyselyNimi;
+    public void setkysely(String kyselyn_nimi) {
+        this.kyselyn_nimi = kyselyn_nimi;
     }
 
     @Override

@@ -1,6 +1,8 @@
 package com.kevatsaapas.kyselydemo;
 
 import com.kevatsaapas.kyselydemo.controller.KysymysRepository;
+import com.kevatsaapas.kyselydemo.controller.KyselyRepository;
+import com.kevatsaapas.kyselydemo.model.Kysely;
 import com.kevatsaapas.kyselydemo.model.Kysymys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +22,9 @@ public class KyselydemoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(KysymysRepository repository) {
+	public CommandLineRunner demo(KysymysRepository repository, KyselyRepository krepository) {
 		return args -> {
+			krepository.save(new Kysely("Hyvinvointikysely"));
 			repository.save(new Kysymys("Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?"));
 			repository.save(new Kysymys("Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?"));
 			repository.save(new Kysymys("Kuinka opiskelusi sujuu?"));

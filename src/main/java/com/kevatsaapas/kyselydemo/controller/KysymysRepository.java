@@ -1,9 +1,11 @@
 package com.kevatsaapas.kyselydemo.controller;
 
 import com.kevatsaapas.kyselydemo.model.Kysymys;
+import com.kevatsaapas.kyselydemo.model.Kysymysvastaus;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
