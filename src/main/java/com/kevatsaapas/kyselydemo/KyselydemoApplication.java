@@ -12,6 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 
+import java.net.URISyntaxException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 @SpringBootApplication
 public class KyselydemoApplication {
 
@@ -30,4 +35,5 @@ public class KyselydemoApplication {
 			repository.save(new Kysymys("Kuinka opiskelusi sujuu?"));
 		};
 	}
+
 }

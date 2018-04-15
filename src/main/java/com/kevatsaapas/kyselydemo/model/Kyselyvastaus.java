@@ -29,4 +29,6 @@ public class Kyselyvastaus {
     public void setKyselyVastaus(String kyselyVastaus) {
         this.kyselyVastaus = kyselyVastaus;
     }
+
+    // Tähän kysymysvastaus.add
 }
