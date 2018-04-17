@@ -6,29 +6,30 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "kysymys")
 public class Kysymys {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long kysymysid;
     private String kysymysTeksti;
+    private Long kysely_id;
 
-    public Kysymys(String kysymysTeksti) {
+    public Kysymys(String kysymysTeksti, Long kysely_id) {
         super();
         this.kysymysTeksti = kysymysTeksti;
+        this.kysely_id = kysely_id;
     }
 
     public Kysymys() {
         super();
         this.kysymysTeksti = null;
+        this.kysely_id = null;
     }
 
     /**
      * Yhdistetään kysymykset kyselyyn ja get-set
      */
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "kyselyid")
-    private Kysely kysely;
+
 
     @OneToMany
     private List<Kysymysvastaus> kysymysvastaukset;
@@ -37,13 +38,9 @@ public class Kysymys {
         return kysymysvastaukset;
     }
 
-    public void getKysely(Kysely kysely){
-        this.kysely = kysely;
-    }
 
-    public void setKysely(Kysely kysely){
-        this.kysely = kysely;
-    }
+
+
 
     public long getId() {
         return kysymysid;
@@ -63,9 +60,11 @@ public class Kysymys {
 
     @Override
     public String toString() {
-        return "Kysymys [id=" + kysymysid + ", kysymysTeksti=" + kysymysTeksti + "]";
+        return "Kysymys{" +
+                "kysymysid=" + kysymysid +
+                ", kysymysTeksti='" + kysymysTeksti + '\'' +
+                ", kysely_id=" + kysely_id +
+
+                '}';
     }
-
-
-
 }

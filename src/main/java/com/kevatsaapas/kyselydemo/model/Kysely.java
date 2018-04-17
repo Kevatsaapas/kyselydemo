@@ -5,12 +5,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
+@Table(name = "kysely")
 public class Kysely {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private long kysely_id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long kysely_id;
 
     private String kyselyn_nimi;
 
@@ -26,11 +28,11 @@ public class Kysely {
         this.kyselyn_nimi = kyselyn_nimi;
     }
 
-    public long getKyselyId() {
+    public Long getKyselyId() {
         return kysely_id;
     }
 
-    public void setKyselyId(long kysely_id) {
+    public void setKyselyId(Long kysely_id) {
         this.kysely_id = kysely_id;
     }
 
@@ -42,11 +44,18 @@ public class Kysely {
         this.kyselyn_nimi = kyselyn_nimi;
     }
 
+    public void setKysymysList(List<Kysymys> kysymysList) {
+        this.kysymysList = kysymysList;
+    }
+
     @Override
     public String toString() {
-        return "";
-
-}
+        return "Kysely{" +
+                "kysely_id=" + kysely_id +
+                ", kyselyn_nimi='" + kyselyn_nimi + '\'' +
+                ", kysymysList=" + kysymysList +
+                '}';
+    }
 
     public List<Kysymys> getKysymysList(){
         return kysymysList;

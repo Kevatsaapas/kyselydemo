@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface KyselyRepository extends CrudRepository <Kysely, Long>{
     Optional<Kysely> findById(Long id);
+
 }
