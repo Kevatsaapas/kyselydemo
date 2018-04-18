@@ -23,7 +23,7 @@ public class RESTController {
     @RequestMapping("kyselyt")
     public Iterable<Kysely> kyselyt(){ 
     	List<Kysely>kyselyt = (List<Kysely>) Krepository.findAll();
-    	List<Kysymys>kysy = null;
+    	List<Kysymys> kysy = null;
     	for(int i=0; i<kyselyt.size(); i++){
     		Kysely kys = kyselyt.get(i);
     		kysy = repository.findByKyselyId(kys.getKyselyId());
