@@ -49,10 +49,6 @@ public class KyselydemoApplication {
 			repository.save(new Kysymys("Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?", demokysely2.getKyselyId()));
 			repository.save(new Kysymys("Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?", demokysely2.getKyselyId()));
 			repository.save(new Kysymys("Kuinka opiskelusi sujuu?", demokysely2.getKyselyId()));
-			System.out.println(demokysely.toString());
-			System.out.println(demokysely2.toString());
-			System.out.println(demokysely.getKyselyId());
-			System.out.println(demokysely2.getKyselyId());
 			System.out.println(repository.findAll().toString());
 		};
 	}

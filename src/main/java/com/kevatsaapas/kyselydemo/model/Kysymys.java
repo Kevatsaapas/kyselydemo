@@ -12,18 +12,18 @@ public class Kysymys {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long kysymysid;
     private String kysymysTeksti;
-    private Long kysely_id;
+    private Long kyselyId;
 
-    public Kysymys(String kysymysTeksti, Long kysely_id) {
+    public Kysymys(String kysymysTeksti, Long kyselyId) {
         super();
         this.kysymysTeksti = kysymysTeksti;
-        this.kysely_id = kysely_id;
+        this.kyselyId = kyselyId;
     }
 
     public Kysymys() {
         super();
         this.kysymysTeksti = null;
-        this.kysely_id = null;
+        this.kyselyId = null;
     }
 
     /**
@@ -42,28 +42,41 @@ public class Kysymys {
 
 
 
-    public long getId() {
-        return kysymysid;
-    }
 
-    public void setId(long id) {
-        this.kysymysid = id;
-    }
+    public void setKysymysid(long kysymysid) {
+		this.kysymysid = kysymysid;
+	}
 
-    public String getKysymysTeksti() {
-        return kysymysTeksti;
-    }
+	public void setKysymysTeksti(String kysymysTeksti) {
+		this.kysymysTeksti = kysymysTeksti;
+	}
 
-    public void setKysymysTeksti(String kysymysTeksti) {
-        this.kysymysTeksti = kysymysTeksti;
-    }
+	public void setKyselyId(Long kyselyId) {
+		this.kyselyId = kyselyId;
+	}
 
-    @Override
+	public void setKysymysvastaukset(List<Kysymysvastaus> kysymysvastaukset) {
+		this.kysymysvastaukset = kysymysvastaukset;
+	}
+
+	public long getKysymysid() {
+		return kysymysid;
+	}
+
+	public String getKysymysTeksti() {
+		return kysymysTeksti;
+	}
+
+	public Long getKyselyId() {
+		return kyselyId;
+	}
+
+	@Override
     public String toString() {
         return "Kysymys{" +
                 "kysymysid=" + kysymysid +
                 ", kysymysTeksti='" + kysymysTeksti + '\'' +
-                ", kysely_id=" + kysely_id +
+                ", kyselyId=" + kyselyId +
 
                 '}';
     }
