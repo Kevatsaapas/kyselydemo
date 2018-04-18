@@ -33,15 +33,14 @@ public class KyselydemoApplication {
 	public CommandLineRunner demo(KysymysRepository repository, KyselyRepository krepository) {
 		return  args -> {
 			
-			Kysely demokysely = new Kysely("Hyvinvointikysely");
+			/*Kysely demokysely = new Kysely("Hyvinvointikysely");
 
 
             krepository.save(demokysely);
 			repository.save(new Kysymys("Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?", demokysely.getKyselyId()));
 			repository.save(new Kysymys("Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?", demokysely.getKyselyId()));
 			repository.save(new Kysymys("Kuinka opiskelusi sujuu?", demokysely.getKyselyId()));
-			/*List<Kysymys> kyslist = repository.findByKysely_id(demokysely.getKyselyId());
-			demokysely.setKysymysList(kyslist);*/
+			
 
 
 			Kysely demokysely2 = new Kysely("Pahoinvointikysely");
@@ -49,8 +48,8 @@ public class KyselydemoApplication {
 			krepository.save(demokysely2);
 			repository.save(new Kysymys("Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?", demokysely2.getKyselyId()));
 			repository.save(new Kysymys("Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?", demokysely2.getKyselyId()));
-			repository.save(new Kysymys("Kuinka opiskelusi sujuu?", demokysely2.getKyselyId()));
-			System.out.println(repository.findAll().toString());
+			repository.save(new Kysymys("Kuinka opiskelusi sujuu?", demokysely2.getKyselyId()));*/
+			
 			
 		};
 	}

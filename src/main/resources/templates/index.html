@@ -2,24 +2,35 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-
+  <style>p.indent{ padding-left: 1.8em }</style>
+  <style>p.indent2{ padding-left: 3.0em }</style>
 </head>
 <body>
 <h1>REST-Dokumentaatio - Kevätsaapas</h1>
 <h2> REST-toiminnot:</h2>
-<p>Hae kaikki kyselyn kysymykset<p>
+<p>Hae kaikki kyselyt kysymyksineen<p>
+<p>Hae kaikkien kyselyiden nimi ja id (eli ilman kysymyksiä)<p>
+<p>Hae yksi kysely kyselyn Id:llä<p>
 <p>Hae yksi kysymys kysymyksen Id:llä<p><br/>
-  <h1> Toiminto: Hae kaikki kysymykset:</h1>
+  <h1> Toiminto: Hae kaikki kyselyt kysymyksineen:</h1>
   <a href="https://sheltered-sands-56766.herokuapp.com/api/kyselyt">https://sheltered-sands-56766.herokuapp.com/api/kyselyt</a>
-  <h2>GET-metodi kyseessä, tuottaa seuraavanlaisen tuloksen:</h2>
-  <p>[{"id":1,"kysymysTeksti":"Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?"},<br/>{"id":2,"kysymysTeksti":"Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?"},<br/>{"id":3,"kysymysTeksti":"Kuinka opiskelusi sujuu?"}]<p>
-    <p>Tulee kasa kysymyksiä pilkulla eroteltuna, attribuutteina kysymyksen uniikki id-numero ja itse kysymyksen teksti.<p><br/><br/>
-      <h1> Toiminto: Hae yksi kysymys:</h1>
-      <p>https://sheltered-sands-56766.herokuapp.com/api/kysymykset/{kysymyksen_id}<p>
-      <h2>GET-metodi tämäkin, laittamalla urliin kysymyksen id-numeron, saadaan kysymys, jolla on kyseinen id, esim:</h2>
-      <a href="https://sheltered-sands-56766.herokuapp.com/api/kysely/1">https://sheltered-sands-56766.herokuapp.com/api/kysely/1</a>
-      <p>{"id":2,"kysymysTeksti":"Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?"}<p>
-        <p>Tulee kysymys, attribuutteina kysymyksen uniikki id-numero ja itse kysymyksen teksti.<p><br/><br/>
+  <h2>GET-metodi kyseessä, tuottaa seuraavanlaisia JSON-olioita:</h2>
+  <p class="indent">[{"kysymysList":<p><p  class="indent2">{"kysymysid":1,<br/>"kysymysTeksti":"Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?",<br/>"kyselyId":1,<br/>"kysymysvastaukset":[]},<br/><br/>{"kysymysid":2,<br/>"kysymysTeksti":"Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?",<br/>"kyselyId":1,<br/>"kysymysvastaukset":[]},<br/><br/>{"kysymysid":3,<br/>"kysymysTeksti":"Kuinka opiskelusi sujuu?",<br/>"kyselyId":1,<br/>"kysymysvastaukset":[]}],<br/><p class="indent">"kyselyId":1,<br/>"kysely":"Hyvinvointikysely"}, [jnejnejne]<p>
+    <p>Ensin tulee kyselyn kysymykset listattuna (kysymysList), jonka jälkeen kyselyn id (kyselyId) ja nimi (kysely)<p><br/>
+
+      <h1> Toiminto: Hae kyselyt ilman kysymyksiä:</h1>
+      <a href="https://sheltered-sands-56766.herokuapp.com/api/kyselynimet">https://sheltered-sands-56766.herokuapp.com/api/kyselynimet</a>
+      <p class="indent">[{"kysymysList":[],<br/>"kyselyId":1,<br/>"kysely":"Hyvinvointikysely"},<br/><br/>{"kysymysList":[],<br/>"kyselyId":2,<br/>"kysely":"Pahoinvointikysely"}]<p>
+        <p>Muuten sama, kuin "hae kaikki kyselyt", mutta kysymykset puuttuvat, jolloin lista on helppolukuisempi<p><br/>
+
+          <h1> Toiminto: Hae yksittäinen kysely:</h1>
+          <p>https://sheltered-sands-56766.herokuapp.com/api/kysely/{kyselyn id-numero} <br/>esim:<p>
+          <a href="https://sheltered-sands-56766.herokuapp.com/api/kysely/2">https://sheltered-sands-56766.herokuapp.com/api/kysely/2</a>
+          <p class="indent">{"kysymysList":[<p><p class="indent2">{"kysymysid":4,<br/>"kysymysTeksti":"Kuinka kuvaat terveydentilaasi tällä hetkellä asteikolla 1-10?",<br/>"kyselyId":2,<br/>"kysymysvastaukset":[]},<br/><br/>{"kysymysid":5,<br/>"kysymysTeksti":"Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?",<br/>"kyselyId":2,<br/>"kysymysvastaukset":[]},<br/><br/>{"kysymysid":6,<br/>"kysymysTeksti":"Kuinka opiskelusi sujuu?",<br/>"kyselyId":2,<br/>"kysymysvastaukset":[]}],<br/><p><p class="indent">"kyselyId":2,<br/>"kysely":"Pahoinvointikysely"}<p>
+            <p>Samat attribuutit kysymysList, kyselyId ja kysely tässäkin<p><br/><br/>
+
+      <h1> Toiminto: Hae kaikki kysymykset:</h1>
+      <a href="https://sheltered-sands-56766.herokuapp.com/api/kysymykset">https://sheltered-sands-56766.herokuapp.com/api/kysymykset</a><br/><br/><p>muokattu viimeksi 18.4.2018<p>
 
 
 </body>
