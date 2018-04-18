@@ -1,7 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
-schema.sql
+
 
 ### STS ###
 .apt_generated
