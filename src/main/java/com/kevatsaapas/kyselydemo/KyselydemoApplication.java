@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -28,10 +29,10 @@ public class KyselydemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(KyselydemoApplication.class, args);
 	}
-
 	@Bean
 	public CommandLineRunner demo(KysymysRepository repository, KyselyRepository krepository) {
 		return  args -> {
+			
 			Kysely demokysely = new Kysely("Hyvinvointikysely");
 
 
@@ -50,6 +51,7 @@ public class KyselydemoApplication {
 			repository.save(new Kysymys("Kuinka kuvaat hyvinvointiasi tällä hetkellä asteikolla 1-10?", demokysely2.getKyselyId()));
 			repository.save(new Kysymys("Kuinka opiskelusi sujuu?", demokysely2.getKyselyId()));
 			System.out.println(repository.findAll().toString());
+			
 		};
 	}
 
