@@ -78,6 +78,19 @@ public class RESTController {
     	return kysymykset;
     }
 
+    @RequestMapping("kysymys/{id}")
+    public Kysymys getKysymys(@PathVariable("id") Long id){
+    	Optional<Kysymys> kys = repository.findById(id);
+    	Kysymys kyss = kys.get();
+    	String type = kyss.getTyyppi();
+    	List<Vaihtoehto> vaih=null;
+    	if(type!="teksti"){
+    		vaih=vrepository.findByKysymysId(kyss.getKysymysid());
+    		kyss.setArvot(vaih);
+    	}
+    	return kyss;
+    }
+    
     @RequestMapping("kysely/{id}")
     public Kysely getKysely(@PathVariable("id") Long id){
     	List<Vaihtoehto> vaih = null;

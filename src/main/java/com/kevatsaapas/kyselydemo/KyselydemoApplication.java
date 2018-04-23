@@ -35,8 +35,9 @@ public class KyselydemoApplication {
 	@Bean
 	public CommandLineRunner demo(KysymysRepository repository, KyselyRepository krepository, VaihtoehtoRepository vrepository) {
 		return  args -> {
-			
-			Kysely demokysely = new Kysely("Hyvinvointikysely");
+			//testidatat paikalliseen käyttöön, ELÄ POISTA PLIIS
+			 
+			Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
 			krepository.save(demokysely);
 			System.out.println(demokysely.getKyselyId());
 			Kysymys kys1 = new Kysymys("Onko hyvä vointi?", demokysely.getKyselyId(), "teksti", null, null);
@@ -68,7 +69,7 @@ public class KyselydemoApplication {
 			
 
 
-			Kysely demokysely2 = new Kysely("Pahoinvointikysely");
+			Kysely demokysely2 = new Kysely("Pahoinvointikysely", "Tämän kyselyn tarkoituksena on kartoittaa pahoinvointia", null);
 			krepository.save(demokysely2);
 			Kysymys kys5 = new Kysymys("Onko paha vointi?", demokysely2.getKyselyId(), "teksti", null, null);
 			Kysymys kys6 = new Kysymys("Oletko voinut pahemminkin?", demokysely2.getKyselyId(), "teksti", null, null);
