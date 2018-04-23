@@ -12,8 +12,5 @@ import java.util.Optional;
 @Repository
 public interface KysymysRepository extends CrudRepository <Kysymys, Long>{
     Optional<Kysymys> findById(Long id);
-
-    /*@Query("select k from KYSYMYS k where k.kysely_id=:kysely_id")
-    public List<Kysymys> findByKysely_id(@Param("kysely_id") Long kysely_id);*/
     List<Kysymys> findByKyselyId(Long kyselyId);
 }
