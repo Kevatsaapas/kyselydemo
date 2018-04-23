@@ -37,7 +37,7 @@ public class KyselydemoApplication {
 		return  args -> {
 			//testidatat paikalliseen käyttöön, ELÄ POISTA PLIIS
 			 
-			Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
+			/*Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
 			krepository.save(demokysely);
 			System.out.println(demokysely.getKyselyId());
 			Kysymys kys1 = new Kysymys("Onko hyvä vointi?", demokysely.getKyselyId(), "teksti", null, null);
@@ -93,7 +93,7 @@ public class KyselydemoApplication {
 			vrepository.save(vai11);
 			vrepository.save(vai12);
 			vrepository.save(vai13);
-			vrepository.save(vai14);
+			vrepository.save(vai14);*/
 			
 			
 			
