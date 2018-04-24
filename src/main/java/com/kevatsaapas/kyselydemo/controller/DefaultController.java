@@ -10,4 +10,14 @@ public class DefaultController {
     public String index(){
         return "index";
     }
+
+    @RequestMapping("/etusivu")
+    public String etusivu(){
+        return "etusivu";
+    }
+
+    @RequestMapping("/uusikysely")
+    public String uusikysely(){
+        return "uusikysely";
+    }
 }
