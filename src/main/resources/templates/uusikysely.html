@@ -10,15 +10,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Oma CSS -->
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
-
     <title>KUKG9000</title>
 </head>
 
 <body>
 
-<div class="container-fluid">
+    <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
@@ -26,73 +23,47 @@
                     Kevätsaapas Ultimate Kysely Generator 9000
                 </h1>
             </div>
-            <p>
-                Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-            </p>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="dropdown">
-                <p>Lisää uusi kysymys</p>
-                <div class="field">
-                    <label for="kysymysTyyppi"></label>
-                    <div class="f-wrapper">
-                        <select id="kysymysTyyppi">
-                            <option value="teksti">Tekstikysymys</option>
-                            <option value="monivalinta">Monivalintakysymys</option>
-                            <option value="valinta">Valintakysymys</option>
-                        </select>
-                    </div>
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h2>
+                    Luo uusi kysely nopeasti ja helposti
+                </h2>
+                <p>
+                    Aloita syöttämällä alle kyselysi nimi ja kyselyn kuvaus. Jatka painamalla 'tallenna'.
+                </p>
+            </div>
+            <form role="form">
+                <div class="form-group">
+
+                    <label for="kyselyNimi">
+                        Kyselyn Nimi
+                    </label>
+                    <input type="text" class="form-control" id="kyselyNimi" th:required="required"/>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div id="teksti" class="hidden">
-                <label for="kysTxt">Kysymyksen teksti:</label>
-                <br />
-                <textarea name="kysTxt" id="kysTxt" cols="60" rows="3"></textarea>
-                <br />
-                <button type="button" class="btn btn-success">
-                    Lisää
+                <div class="form-group">
+
+                    <label for="kyselyKuvaus">
+                        Kyselyn Kuvaus
+                    </label>
+                    <br />
+                    <textarea th:name="message" th:rows="6" th:cols="150" th:maxlength="1000" id="kyselyKuvaus" th:required="required"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Tallenna
                 </button>
-            </div>
-            <div id="monivalinta" class="hidden">Monivalinta div</div>
-            <div id="valinta" class="hidden">Valinta div</div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-
-            <button type="button" class="btn btn-success">
-                Julkaise
-            </button>
+            </form>
         </div>
     </div>
 </div>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<!-- Oma JavaScript -->
-<script>
-    var ids=["teksti", "monivalinta", "valinta"];
-    var dropDown = document.getElementById("kysymysTyyppi");
-
-    dropDown.onchange = function(){
-        for(var x = 0; x < ids.length; x++){   document.getElementById(ids[x]).style.display="none";
-        }    document.getElementById(this.value).style.display = "block";
-    }
-    console.log("Asdasd");
-</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>
