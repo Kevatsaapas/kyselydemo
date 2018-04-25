@@ -1,7 +1,5 @@
 package com.kevatsaapas.kyselydemo.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 import org.hibernate.validator.constraints.Length;
@@ -15,9 +13,9 @@ public class Kysely {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long kysely_id;
+    private Long kyselyId;
 
-    private String kyselyn_nimi;
+    private String kyselyNimi;
 
     @Column
     @Length(min=1, max=1000)
@@ -27,9 +25,9 @@ public class Kysely {
     private List<Kysymys> kysymysList;
 
     
-    public Kysely(String kyselyn_nimi, @Length(min = 1, max = 1000) String kuvaus, List<Kysymys> kysymysList) {
+    public Kysely(String kyselyNimi, @Length(min = 1, max = 1000) String kuvaus, List<Kysymys> kysymysList) {
 		super();
-		this.kyselyn_nimi = kyselyn_nimi;
+		this.kyselyNimi = kyselyNimi;
 		this.kuvaus = kuvaus;
 		this.kysymysList = kysymysList;
 	}
@@ -38,7 +36,7 @@ public class Kysely {
     
 	public Kysely() {
 		super();
-		this.kyselyn_nimi = null;
+		this.kyselyNimi = null;
 		this.kuvaus = null;
 		this.kysymysList = null;
 	}
@@ -58,19 +56,19 @@ public class Kysely {
 
 
 	public Long getKyselyId() {
-        return kysely_id;
+        return kyselyId;
     }
 
     public void setKyselyId(Long kysely_id) {
-        this.kysely_id = kysely_id;
+        this.kyselyId = kysely_id;
     }
 
-    public String getkysely() {
-        return kyselyn_nimi;
+    public String getKyselyNimi() {
+        return kyselyNimi;
     }
 
-    public void setkysely(String kyselyn_nimi) {
-        this.kyselyn_nimi = kyselyn_nimi;
+    public void setKyselyNimi(String kyselyn_nimi) {
+        this.kyselyNimi = kyselyn_nimi;
     }
 
     public void setKysymysList(List<Kysymys> kysymysList) {
@@ -81,7 +79,7 @@ public class Kysely {
 
     @Override
 	public String toString() {
-		return "Kysely [kysely_id=" + kysely_id + ", kyselyn_nimi=" + kyselyn_nimi + ", kuvaus=" + kuvaus
+		return "Kysely [kyselyId=" + kyselyId + ", kyselyNimi=" + kyselyNimi + ", kuvaus=" + kuvaus
 				+ ", kysymysList=" + kysymysList + "]";
 	}
 

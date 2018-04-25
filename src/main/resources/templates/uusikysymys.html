@@ -31,6 +31,7 @@
             </p>
         </div>
     </div>
+    <form role="form" th:object="${kysymys}" th:action="@{/{kyselyId}/uusikysymys}" action="#" method="post">
     <div class="row">
         <div class="col-md-6">
             <div class="dropdown">
@@ -53,7 +54,7 @@
                 <br />
                 <textarea name="kysTxt" id="kysTxt" cols="60" rows="3"></textarea>
                 <br />
-                <button type="button" class="btn btn-success">
+                <button type="submit" class="btn btn-success" value="add">
                     Lisää
                 </button>
             </div>
@@ -69,9 +70,8 @@
     <div class="row">
         <div class="col-md-12">
 
-            <button type="button" class="btn btn-success">
-                Julkaise
-            </button>
+            <input id="addButton" type="submit" class="btn btn-primary" value="Tallenna">
+            </input>
         </div>
     </div>
 </div>
