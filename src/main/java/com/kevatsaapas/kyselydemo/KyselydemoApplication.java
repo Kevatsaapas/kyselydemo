@@ -37,11 +37,11 @@ public class KyselydemoApplication {
 		return  args -> {
 			//testidatat paikalliseen käyttöön, ELÄ POISTA PLIIS
 			 
-			/*Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
+			Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
 			krepository.save(demokysely);
 			System.out.println(demokysely.getKyselyId());
-			Kysymys kys1 = new Kysymys("Onko hyvä vointi?", demokysely.getKyselyId(), "teksti", null, null);
-			Kysymys kys2 = new Kysymys("Oletko voinut paremminkin?", demokysely.getKyselyId(), "teksti", null, null);
+			Kysymys kys1 = new Kysymys("Onko hyvä vointi?", demokysely.getKyselyId(), "text", null, null);
+			Kysymys kys2 = new Kysymys("Oletko voinut paremminkin?", demokysely.getKyselyId(), "textarea", null, null);
 			Kysymys kys3 = new Kysymys("Kuinka hyvä olo on nyt?", demokysely.getKyselyId(), "radio", null, null);
 			Kysymys kys4 = new Kysymys("Mitkä seuraavista asioista parantavat oloasi?", demokysely.getKyselyId(), "checkbox", null, null);
 			repository.save(kys1);
@@ -71,8 +71,8 @@ public class KyselydemoApplication {
 
 			Kysely demokysely2 = new Kysely("Pahoinvointikysely", "Tämän kyselyn tarkoituksena on kartoittaa pahoinvointia", null);
 			krepository.save(demokysely2);
-			Kysymys kys5 = new Kysymys("Onko paha vointi?", demokysely2.getKyselyId(), "teksti", null, null);
-			Kysymys kys6 = new Kysymys("Oletko voinut pahemminkin?", demokysely2.getKyselyId(), "teksti", null, null);
+			Kysymys kys5 = new Kysymys("Onko paha vointi?", demokysely2.getKyselyId(), "text", null, null);
+			Kysymys kys6 = new Kysymys("Oletko voinut pahemminkin?", demokysely2.getKyselyId(), "textarea", null, null);
 			Kysymys kys7 = new Kysymys("Kuinka huono olo on nyt?", demokysely2.getKyselyId(), "radio", null, null);
 			Kysymys kys8 = new Kysymys("Mitkä seuraavista asioista pahentavat oloasi?", demokysely2.getKyselyId(), "checkbox", null, null);
 			repository.save(kys5);
@@ -93,7 +93,7 @@ public class KyselydemoApplication {
 			vrepository.save(vai11);
 			vrepository.save(vai12);
 			vrepository.save(vai13);
-			vrepository.save(vai14);*/
+			vrepository.save(vai14);
 			
 			
 			

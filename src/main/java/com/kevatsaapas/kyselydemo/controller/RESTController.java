@@ -37,7 +37,7 @@ public class RESTController {
     		for(int u=0; u<kysymykset.size(); u++){
         		Kysymys kysy = kysymykset.get(u);
         		String type = kysy.getTyyppi();
-        		if(type=="teksti" || type=="textarea"){
+        		if(type=="text" || type=="textarea"){
         			System.out.println("teksti tais olla");
         		}else{
         		vaih = vrepository.findByKysymysId(kysy.getKysymysid());
@@ -66,7 +66,7 @@ public class RESTController {
     	for(int i=0; i<kysymykset.size(); i++){
     		Kysymys kys = kysymykset.get(i);
     		String type = kys.getTyyppi();
-    		if(type=="teksti" || type=="textarea"){
+    		if(type=="text" || type=="textarea"){
     			System.out.println("teksti tais olla");
     		}else{
     		vaih = vrepository.findByKysymysId(kys.getKysymysid());
@@ -84,7 +84,7 @@ public class RESTController {
     	Kysymys kyss = kys.get();
     	String type = kyss.getTyyppi();
     	List<Vaihtoehto> vaih=null;
-    	if(type!="teksti" || type!="textarea"){
+    	if(type!="text" || type!="textarea"){
     		vaih=vrepository.findByKysymysId(kyss.getKysymysid());
     		kyss.setArvot(vaih);
     	}
@@ -100,7 +100,7 @@ public class RESTController {
         for(int i=0; i<kysymykset.size(); i++){
     		Kysymys kys = kysymykset.get(i);
     		String type = kys.getTyyppi();
-    		if(type=="teksti" || type=="textarea"){
+    		if(type=="text" || type=="textarea"){
     			System.out.println("teksti tais olla");
     		}else{
     		vaih = vrepository.findByKysymysId(kys.getKysymysid());
