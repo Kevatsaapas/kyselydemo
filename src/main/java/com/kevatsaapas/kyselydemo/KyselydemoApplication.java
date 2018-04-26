@@ -35,9 +35,9 @@ public class KyselydemoApplication {
 	@Bean
 	public CommandLineRunner demo(KysymysRepository repository, KyselyRepository krepository, VaihtoehtoRepository vrepository) {
 		return  args -> {
-			//testidatat paikalliseen käyttöön, ELÄ POISTA PLIIS
+			//testidatat paikalliseen käyttöön, ELÄ POISTA PLIISSSSS
 			 
-			/*Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
+			Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
 			krepository.save(demokysely);
 			System.out.println(demokysely.getKyselyId());
 			Kysymys kys1 = new Kysymys("Onko hyvä vointi?", demokysely.getKyselyId(), "text", null, null);
@@ -61,7 +61,7 @@ public class KyselydemoApplication {
 			vrepository.save(vai4);
 			vrepository.save(vai5);
 			vrepository.save(vai6);
-			vrepository.save(vai7);*/
+			vrepository.save(vai7);
 			
 			
 	
