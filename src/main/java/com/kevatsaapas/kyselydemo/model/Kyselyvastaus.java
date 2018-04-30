@@ -9,26 +9,54 @@ public class Kyselyvastaus {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long kyselyvastausid;
-    private String kyselyVastaus;
+    private Long kyselyId;
 
     @OneToMany
-    private List<Kysymysvastaus> kysymysvastaus;
+    private List<Kysymysvastaus> vastaukset;	
+    
+	public Kyselyvastaus() {
+		super();
+		this.kyselyId = null;
+		this.vastaukset = null;
+	}
 
-    public Long getKyselyvastausid() {
-        return kyselyvastausid;
-    }
+	public Kyselyvastaus( Long kyselyId, List<Kysymysvastaus> vastaukset) {
+		super();
+		this.kyselyId = kyselyId;
+		this.vastaukset = vastaukset;
+	}
 
-    public void setKyselyvastausid(Long kyselyvastausid) {
-        this.kyselyvastausid = kyselyvastausid;
-    }
+	public Long getKyselyvastausid() {
+		return kyselyvastausid;
+	}
 
-    public String getKyselyVastaus() {
-        return kyselyVastaus;
-    }
+	public void setKyselyvastausid(Long kyselyvastausid) {
+		this.kyselyvastausid = kyselyvastausid;
+	}
 
-    public void setKyselyVastaus(String kyselyVastaus) {
-        this.kyselyVastaus = kyselyVastaus;
-    }
 
-    // Tähän kysymysvastaus.add
+
+	public Long getKyselyId() {
+		return kyselyId;
+	}
+
+	public void setKyselyId(Long kyselyId) {
+		this.kyselyId = kyselyId;
+	}
+
+	public List<Kysymysvastaus> getVastaukset() {
+		return vastaukset;
+	}
+
+	public void setVastaukset(List<Kysymysvastaus> vastaukset) {
+		this.vastaukset = vastaukset;
+	}
+
+	@Override
+	public String toString() {
+		return "Kyselyvastaus [kyselyvastausid=" + kyselyvastausid + ", kyselyId=" + kyselyId
+				+ ", vastaukset=" + vastaukset + "]";
+	}
+
+    
 }

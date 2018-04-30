@@ -1,12 +1,18 @@
 package com.kevatsaapas.kyselydemo.controller;
 
 import com.kevatsaapas.kyselydemo.model.Kysely;
+import com.kevatsaapas.kyselydemo.model.Kyselyvastaus;
 import com.kevatsaapas.kyselydemo.model.Kysymys;
+import com.kevatsaapas.kyselydemo.model.Kysymysvastaus;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 import javax.websocket.server.PathParam;
 
@@ -16,8 +22,11 @@ public class DefaultController {
     @Autowired
     private KyselyRepository kyselyRepository;
 
+    /*@Autowired
+    private KysymysRepository kysymysRepository;*/
+    
     @Autowired
-    private KysymysRepository kysymysRepository;
+    private KysymysvastausRepository kvrepo;
 
     @RequestMapping("/")
     public String index(){
@@ -45,6 +54,20 @@ public class DefaultController {
         model.addAttribute("id", kyselyId);
 
         return "uusikysymys";
+    }
+    
+    
+    @RequestMapping(value="/otavastaus", method = RequestMethod.POST)
+    public String otaVastaus(@RequestBody Kyselyvastaus kysvas){
+   	List<Kysymysvastaus> vastaukset = kysvas.getVastaukset();
+   	Kysymysvastaus kys = null;
+   	for(int i=0; i<vastaukset.size(); i++){
+   		kys = vastaukset.get(i);
+   		kvrepo.save(kys);
+   	}
+   	System.out.println(kvrepo.findAll().toString());
+		return "redirect:/";
+   	 
     }
 
     /*

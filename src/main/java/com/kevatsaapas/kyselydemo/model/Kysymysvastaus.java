@@ -8,39 +8,50 @@ public class Kysymysvastaus {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String vastaus;
+    private Long kysymysId;
+    
+	public Kysymysvastaus() {
+		super();
+		this.vastaus = null;
+		this.kysymysId = null;
+	}
 
-    private String vastausTeksi;
+	public Kysymysvastaus(String vastaus, Long kysymysId) {
+		super();
+		this.vastaus = vastaus;
+		this.kysymysId = kysymysId;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "kysymysid")
-    private Kysymys kysymys;
+	public Long getId() {
+		return id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "kyselyvastausid")
-    private Kyselyvastaus kyselyvastaus;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public Kysymys getKysymys() {
-        return kysymys;
-    }
+	public String getVastaus() {
+		return vastaus;
+	}
 
-    public void setKysymys(Kysymys kysymys) {
-        this.kysymys = kysymys;
-    }
+	public void setVastaus(String vastaus) {
+		this.vastaus = vastaus;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Long getKysymysId() {
+		return kysymysId;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setKysymysId(Long kysymysId) {
+		this.kysymysId = kysymysId;
+	}
 
-    public String getVastausTeksi() {
-        return vastausTeksi;
-    }
+	@Override
+	public String toString() {
+		return "Kysymysvastaus [id=" + id + ", vastaus=" + vastaus + ", kysymysId=" + kysymysId + "]";
+	}
 
-    public void setVastausTeksi(String vastausTeksi) {
-        this.vastausTeksi = vastausTeksi;
-    }
+    
 
 }
