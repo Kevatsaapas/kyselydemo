@@ -12,4 +12,5 @@ import com.kevatsaapas.kyselydemo.model.Kysymysvastaus;
 public interface KysymysvastausRepository extends CrudRepository <Kysymysvastaus, Long>{
     Optional<Kysymysvastaus> findById(Long id);
     List<Kysymysvastaus> findByKysymysId(Long kysymysId);
+   // List<Kysymysvastaus> findByKyselyId(Long kyselyId);
 }

@@ -133,6 +133,27 @@ public class RESTController {
     	return kysvas;
     }
     
+    @RequestMapping("vastaukset/kysely/{id}")
+    public Kysely haeKyselyVastaukset(@PathVariable("id")Long id){
+    	Optional<Kysely> kysely = Krepository.findById(id);
+    	Kysely kysely2 = kysely.get();
+    	List<Kysymys> kysarit = repository.findByKyselyId(id);
+    	List<Kysymysvastaus> vas = null;
+    	for(int i=0; i<kysarit.size(); i++){
+    		Kysymys kys = kysarit.get(i);
+    		String type = kys.getTyyppi();
+    		if(type!="text" || type!="textarea"){
+    			List<Vaihtoehto> vaih = vrepository.findByKysymysId(kys.getKysymysid());
+    			kys.setArvot(vaih);
+    		}
+    		vas = kvrepo.findByKysymysId(kys.getKysymysid());
+    		kys.setKysymysvastaukset(vas);
+    		kysarit.set(i, kys);
+    	}
+    	kysely2.setKysymysList(kysarit);
+    	return kysely2;
+    }
+    
    /* @PostMapping("otavastaus")
     @ResponseBody
     public Kyselyvastaus otaVastaus(Kyselyvastaus kysvas, Kysymysvastaus kysyvas){
