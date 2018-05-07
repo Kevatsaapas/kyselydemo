@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -22,8 +23,8 @@ public class DefaultController {
     @Autowired
     private KyselyRepository kyselyRepository;
 
-    /*@Autowired
-    private KysymysRepository kysymysRepository;*/
+    @Autowired
+    private KysymysRepository kysymysRepository;
     
     @Autowired
     private KysymysvastausRepository kvrepo;
@@ -39,6 +40,21 @@ public class DefaultController {
         return "uusikysely";
     }
 
+    @RequestMapping(value = "/kyselyt", method = RequestMethod.GET)
+    public String Kyselyt(Model model){
+        List<Kysely> kyselylist = (List<Kysely>)kyselyRepository.findAll();
+        for(int i=0; i<kyselylist.size(); i++){
+        	Kysely kys =kyselylist.get(i);
+        	List<Kysymys> kyslist = kysymysRepository.findByKyselyId(kys.getKyselyId());
+        	kys.setKysymysList(kyslist);
+        	kyselylist.set(i, kys);
+        }
+
+        	
+        model.addAttribute("kyselyt", kyselylist);
+        return "kyselylista";
+    }
+    
     @RequestMapping(value = "/uusikysely", method = RequestMethod.POST)
     public String tallennaKysely(Kysely kysely){
 
@@ -49,7 +65,6 @@ public class DefaultController {
 
     @RequestMapping(value ="/{kyselyId}/uusikysymys", method = RequestMethod.GET)
     public String uusiKysymys(@PathParam("kyselyId") Long kyselyId, Model model) {
-
         model.addAttribute("kysymys", new Kysymys());
         model.addAttribute("id", kyselyId);
 
@@ -70,18 +85,17 @@ public class DefaultController {
    	 
     }
 
-    /*
+    
 
-    kyselyId null ei toimi
 
     @RequestMapping(value ="/{kyselyId}/uusikysymys", method = RequestMethod.POST)
-    public String tallennaKysymys(@PathParam("kyselyId") Long kyselyId, Kysymys kysymys) {
-
+    public String tallennaKysymys(@PathParam("kyselyId")Long kyselyId, Kysymys kysymys) {
+    	//Long kysId = Long.parseLong(kyselyId);
         kysymys.setKyselyId(kyselyId);
         kysymysRepository.save(kysymys);
 
         return "redirect;/{kyselyId}/uusikysymys";
 
     }
-    */
+    
 }

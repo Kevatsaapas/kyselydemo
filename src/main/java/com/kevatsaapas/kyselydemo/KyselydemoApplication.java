@@ -90,10 +90,6 @@ public class KyselydemoApplication {
 			vrepository.save(vai13);
 			vrepository.save(vai14);*/
 			
-			
-			
-			
-			
 		};
 	}
 
