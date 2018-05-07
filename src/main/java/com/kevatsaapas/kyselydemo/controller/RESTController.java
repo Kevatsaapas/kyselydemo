@@ -12,6 +12,7 @@ import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JsonParser;
 import org.springframework.boot.json.JsonParserFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class RESTController {
 
@@ -105,6 +107,7 @@ public class RESTController {
     	return kyss;
     }
     
+    @CrossOrigin
     @RequestMapping("kysely/{id}")
     public Kysely getKysely(@PathVariable("id") Long id){
     	List<Vaihtoehto> vaih = null;
