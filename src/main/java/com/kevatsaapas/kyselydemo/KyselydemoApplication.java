@@ -88,7 +88,7 @@ public class KyselydemoApplication {
 			vrepository.save(vai11);
 			vrepository.save(vai12);
 			vrepository.save(vai13);
-			vrepository.save(vai14);*/
+			vrepository.save(vai14);
 			
 			
 			Kysely demokysely = new Kysely("Hyvinvointikysely", "Kyselyn tarkoituksena on kartoittaa hyvinvointia", null);
@@ -293,7 +293,7 @@ public class KyselydemoApplication {
 			vrepository.save(vai70);
 			vrepository.save(vai71);
 			vrepository.save(vai72);
-			vrepository.save(vai73);
+			vrepository.save(vai73);*/
 			
 		};
 	}
