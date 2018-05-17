@@ -31,7 +31,7 @@
             </p>
         </div>
     </div>
-    <form role="form" th:object="${kysymys}" th:action="@{/{kyselyId}/uusikysymys}" action="#" method="post">
+    <form role="form" th:object="${kysymys}" th:action="@{/uusikysymys/{pathVariable}/(pathVariable=${kyselyId})}" action="#" method="post">
     <div class="row">
         <div class="col-md-6">
             <div class="dropdown">
@@ -48,20 +48,21 @@
                 </div>
             </div>
         </div>
+    </div>
         <div class="col-md-6">
             <div id="teksti" class="hidden">
                 <label for="kysTxt">Kysymyksen teksti:</label>
                 <br />
-                <textarea name="kysTxt" id="kysTxt" cols="60" rows="3"></textarea>
+                <textarea name="kysTxt" id="kysTxt" cols="60" rows="3" th:field="*{kysymysTeksti}"></textarea>
                 <br />
                 <button type="submit" class="btn btn-success" value="add">
                     Lisää
                 </button>
             </div>
-            <div id="monivalinta" class="hidden">Monivalinta div</div>
-            <div id="valinta" class="hidden">Valinta div</div>
+            <div id="monivalinta" class="hidden" th:field="*{tyyppi}">Monivalinta</div>
+            <div id="valinta" class="hidden" th:field="*{tyyppi}">Valinta</div>
         </div>
-    </div>
+    </form>
     <div class="row">
         <div class="col-md-12">
 
@@ -75,6 +76,9 @@
         </div>
     </div>
 </div>
+</form>
+
+</body>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

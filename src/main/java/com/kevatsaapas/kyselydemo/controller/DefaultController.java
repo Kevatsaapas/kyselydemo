@@ -1,5 +1,8 @@
 package com.kevatsaapas.kyselydemo.controller;
 
+import com.kevatsaapas.kyselydemo.repository.KyselyRepository;
+import com.kevatsaapas.kyselydemo.repository.KysymysRepository;
+import com.kevatsaapas.kyselydemo.repository.KysymysvastausRepository;
 import com.kevatsaapas.kyselydemo.model.Kysely;
 import com.kevatsaapas.kyselydemo.model.Kyselyvastaus;
 import com.kevatsaapas.kyselydemo.model.Kysymys;
@@ -8,6 +11,7 @@ import com.kevatsaapas.kyselydemo.model.Kysymysvastaus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,8 +26,8 @@ public class DefaultController {
     @Autowired
     private KyselyRepository kyselyRepository;
 
-    /*@Autowired
-    private KysymysRepository kysymysRepository;*/
+    @Autowired
+    private KysymysRepository kysymysRepository;
     
     @Autowired
     private KysymysvastausRepository kvrepo;
@@ -47,11 +51,11 @@ public class DefaultController {
         return "redirect:/uusikysely";
     }
 
-    @RequestMapping(value ="/{kyselyId}/uusikysymys", method = RequestMethod.GET)
-    public String uusiKysymys(@PathParam("kyselyId") Long kyselyId, Model model) {
+    @RequestMapping(value ="/uusikysymys/{kyselyId}/", method = RequestMethod.GET)
+    public String uusiKysymys(@PathVariable("kyselyId") Long kyselyId, Model model) {
 
         model.addAttribute("kysymys", new Kysymys());
-        model.addAttribute("id", kyselyId);
+        model.addAttribute("kyselyId", kyselyId);
 
         return "uusikysymys";
     }
@@ -70,18 +74,12 @@ public class DefaultController {
    	 
     }
 
-    /*
-
-    kyselyId null ei toimi
-
-    @RequestMapping(value ="/{kyselyId}/uusikysymys", method = RequestMethod.POST)
-    public String tallennaKysymys(@PathParam("kyselyId") Long kyselyId, Kysymys kysymys) {
+    @RequestMapping(value ="/uusikysymys/{kyselyId}", method = RequestMethod.POST)
+    public String tallennaKysymys(@PathVariable("kyselyId") Long kyselyId, Kysymys kysymys) {
 
         kysymys.setKyselyId(kyselyId);
         kysymysRepository.save(kysymys);
 
-        return "redirect;/{kyselyId}/uusikysymys";
-
+        return "redirect:/uusikysymys/" + kyselyId;
     }
-    */
 }

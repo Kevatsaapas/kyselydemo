@@ -1,4 +1,4 @@
-package com.kevatsaapas.kyselydemo.controller;
+package com.kevatsaapas.kyselydemo.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,5 +12,4 @@ import com.kevatsaapas.kyselydemo.model.Kysymysvastaus;
 public interface KysymysvastausRepository extends CrudRepository <Kysymysvastaus, Long>{
     Optional<Kysymysvastaus> findById(Long id);
     List<Kysymysvastaus> findByKysymysId(Long kysymysId);
-   // List<Kysymysvastaus> findByKyselyId(Long kyselyId);
 }

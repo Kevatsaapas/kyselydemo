@@ -1,28 +1,20 @@
 package com.kevatsaapas.kyselydemo.controller;
 
+import com.kevatsaapas.kyselydemo.repository.KyselyRepository;
+import com.kevatsaapas.kyselydemo.repository.KysymysRepository;
+import com.kevatsaapas.kyselydemo.repository.KysymysvastausRepository;
+import com.kevatsaapas.kyselydemo.repository.VaihtoehtoRepository;
 import com.kevatsaapas.kyselydemo.model.Kysely;
-import com.kevatsaapas.kyselydemo.model.Kyselyvastaus;
 import com.kevatsaapas.kyselydemo.model.Kysymys;
 import com.kevatsaapas.kyselydemo.model.Kysymysvastaus;
 import com.kevatsaapas.kyselydemo.model.Vaihtoehto;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
-import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.json.JsonParser;
-import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.ProcessBuilder.Redirect;
-import java.lang.annotation.Target;
 import java.util.List;
 import java.util.Optional;
 

@@ -8,12 +8,15 @@ import java.util.List;
 @Entity
 @Table(name = "kysymys")
 public class Kysymys {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long kysymysid;
+
 	private String kysymysTeksti;
 	private Long kyselyId;
 	private String tyyppi;
+
 	@OneToMany
 	private List<Vaihtoehto> arvot;
 

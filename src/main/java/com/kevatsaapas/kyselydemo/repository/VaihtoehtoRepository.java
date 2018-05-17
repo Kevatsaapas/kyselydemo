@@ -1,4 +1,4 @@
-package com.kevatsaapas.kyselydemo.controller;
+package com.kevatsaapas.kyselydemo.repository;
 
 import java.util.List;
 import java.util.Optional;
