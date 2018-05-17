@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <style>p.indent{ padding-left: 1.8em }</style>
   <style>p.indent2{ padding-left: 3.0em }</style>
+  <style>p.indent3{ padding-left: 4.2em }</style>
+  <style>p.indent4{ padding-left: 5.4em }</style>
+  <style>p.indent5{ padding-left: 5.6em }</style>
+  <style>p.indent6{ padding-left: 6.8em }</style>
 </head>
 <body>
 <h1>REST-Dokumentaatio - Kevätsaapas</h1>
@@ -11,7 +15,12 @@
 <p>Hae kaikki kyselyt kysymyksineen<p>
 <p>Hae kaikkien kyselyiden nimi ja id (eli ilman kysymyksiä)<p>
 <p>Hae yksi kysely kyselyn Id:llä<p>
-<p>Hae yksi kysymys kysymyksen Id:llä<p><br/>
+<p>Hae kaikki kysymykset<p>
+<p>Hae Kysymyksen yksittäinen kysymys ja kysymyksen tyyppi<p>
+<p>Hae kysymyksen kaikki vastaukset<p>
+<p>Hae kyselyn kaikki vastaukset<p>
+<p>Hae yksi kysymys kysymyksen Id:llä<p>
+<p>Lähetä vastaukset tietokantaan<p><br/>
   <h1> Toiminto: Hae kaikki kyselyt kysymyksineen:</h1>
   <a href="https://sheltered-sands-56766.herokuapp.com/api/kyselyt">https://sheltered-sands-56766.herokuapp.com/api/kyselyt</a>
   <h2>GET-metodi kyseessä, tuottaa seuraavanlaisia JSON-olioita:</h2>
@@ -30,8 +39,26 @@
             <p>Samat attribuutit kysymysList, kyselyId ja kysely tässäkin<p><br/><br/>
 
       <h1> Toiminto: Hae kaikki kysymykset:</h1>
-      <a href="https://sheltered-sands-56766.herokuapp.com/api/kysymykset">https://sheltered-sands-56766.herokuapp.com/api/kysymykset</a><br/><br/><p>muokattu viimeksi 18.4.2018<p>
+      <a href="https://sheltered-sands-56766.herokuapp.com/api/kysymykset">https://sheltered-sands-56766.herokuapp.com/api/kysymykset</a><br/><br/>
 
+	<h1>Toiminto: Hae yksittäinen kysymys id:llä  tyypillä:</h1>
+	<p>https://sheltered-sands-56766.herokuapp.com/api/kysymys/{kysymyksen id}<p>
+		<a href="https://sheltered-sands-56766.herokuapp.com/api/kysymys/1">https://sheltered-sands-56766.herokuapp.com/api/kysymys/1</a>
+		<p class="indent">{"kysymysid":1<p><p class="indent2">,"kysymysTeksti":"Onko hyvä vointi?",<br/>"kyselyId":1,<br/>"tyyppi":"text",<br/>"arvot":[],<br/>"kysymysvastaukset":[]<br/>}<p>
+		
+	<h1>Toiminto: Hae yksittäisen kysymyksen kaikki vastaukset:</h1>
+		<p>https://sheltered-sands-56766.herokuapp.com/api/vastaukset/{kysymyksen id}<p>
+		<a href="https://sheltered-sands-56766.herokuapp.com/api/vastaukset/1">https://sheltered-sands-56766.herokuapp.com/api/vastaukset/1</a>
+		<p class="indent">[<p><p class="indent2">{"id":23,<br/>"vastaus":"jea",<br/>"kysymysId":1<br/>},<br/>{<br/>"id":31,<br/>"vastaus":"jea",<br/>"kysymysId":1<br/>},<br/>{<br/>"id":61,<br/>"vastaus":"jea",<br/>"kysymysId":1<br/>},<br/>{<br/>"id":69,<br/>"vastaus":"jea",<br/>"kysymysId":1<br/>}<p class="indent">]<p>
 
+	<h1>Toiminto: Hae Kyselyn kaikki vastaukset:</h1>
+		<p>https://sheltered-sands-56766.herokuapp.com/api/vastaukset/kysely/{kyselyn id}<p>
+		<a href="https://sheltered-sands-56766.herokuapp.com/api/vastaukset/kysely/1">https://sheltered-sands-56766.herokuapp.com/api/vastaukset/kysely/1</a>
+		<p class="indent">{<p><p class="indent2">"kyselyId":1,<br/>"kyselyNimi":"Hyvinvointikysely",<br/>"kuvaus":"Kyselyn tarkoituksena on kartoittaa hyvinvointia",<br/>"kysymysList":[<p class="indent3">{"kysymysid":1,<p class="indent4">"kysymysTeksti":"Onko hyvä vointi?",<br/>"kyselyId":1,<br/>"tyyppi":"text",<br/>"arvot":[],<br/>"kysymysvastaukset":[<p class="indent5">{<p class="indent6">"id":23,<br/>"vastaus":"jea",<br/>"kysymysId":1<p class="indent5">},<br/>{<p class="indent6">"id":31,<br/>"vastaus":"jea"<br/>,"kysymysId":1<p class="indent5">},<br/>{<p class="indent6">"id":61,<br/>"vastaus":"jea",<br/>"kysymysId":1<p class="indent5">},<br/>{<p class="indent6">"id":69,<br/>"vastaus":"jea",<br/>"kysymysId":1<p class="indent5">}<p class="indent3">]<p class="indent2">},<br/> ....... jatkuu seuraavaan ja seuraavaan kysymykseen <p class="indent2">]<p class="indent">}
+
+	<h1>Toiminto: Lähetä vastaukset palvelimelle</h1>
+	<h2>POST metodi kyseessä</h2>
+		<a href="https://sheltered-sands-56766.herokuapp.com/otavastaus">https://sheltered-sands-56766.herokuapp.com/otavastaus</a>
+		<p> Tätä kautta voidaan lisätä kyselyn vastaukset tietokantaan. Huomioi, että JSON on oltava oikeassa muodossa!
 </body>
 </html>

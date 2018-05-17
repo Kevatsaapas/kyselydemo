@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="htmlhead">
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+    <link rel="shortcut icon" type="image/png" th:href="@{/images/favicon.png}"></link>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>KUKG9000</title>
+</head>
+<body>
+<h1>Kyselyt</h1>
+<table>
+
+<tr>
+<td>Id</td>
+<td>Otsikko</td>
+</tr>
+
+<tr th:each="kysely: ${kyselyt}">
+<td th:text="${kysely.kyselyId}"></td>
+<td th:text="${kysely.kyselyNimi}"></td>
+</tr>
+</table>
+</body>
+</html>

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -41,6 +42,21 @@ public class DefaultController {
     public String uusiKysely(Model model){
         model.addAttribute("kysely", new Kysely());
         return "uusikysely";
+    }
+
+    @RequestMapping(value = "/kyselyt", method = RequestMethod.GET)
+    public String Kyselyt(Model model){
+        List<Kysely> kyselylist = (List<Kysely>)kyselyRepository.findAll();
+        for(int i=0; i<kyselylist.size(); i++){
+        	Kysely kys =kyselylist.get(i);
+        	List<Kysymys> kyslist = kysymysRepository.findByKyselyId(kys.getKyselyId());
+        	kys.setKysymysList(kyslist);
+        	kyselylist.set(i, kys);
+        }
+
+
+        model.addAttribute("kyselyt", kyselylist);
+        return "kyselylista";
     }
 
     @RequestMapping(value = "/uusikysely", method = RequestMethod.POST)
@@ -82,4 +98,5 @@ public class DefaultController {
 
         return "redirect:/uusikysymys/" + kyselyId;
     }
+
 }
