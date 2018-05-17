@@ -67,7 +67,7 @@ public class DefaultController {
         return "redirect:/uusikysely";
     }
 
-    @RequestMapping(value ="/uusikysymys/{kyselyId}/", method = RequestMethod.GET)
+    @RequestMapping(value ="/uusikysymys/{kyselyId}", method = RequestMethod.GET)
     public String uusiKysymys(@PathVariable("kyselyId") Long kyselyId, Model model) {
 
         model.addAttribute("kysymys", new Kysymys());
